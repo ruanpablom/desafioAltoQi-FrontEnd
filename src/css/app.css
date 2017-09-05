@@ -1,0 +1,40 @@
+body{
+  background-color:#eee;
+  font-family: 'Titillium Web', sans-serif;
+  color: #555;
+}
+rpm-header{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#fff;
+  border-bottom: 1px solid #ccc;
+}
+rpm-survey #inputEmail{
+  margin-top: 50px;
+}
+rpm-survey #surveyForm{
+  margin-top: 50px;
+}
+rpm-survey .card{
+  margin-top: 20px;
+}
+rpm-survey #topic{
+  margin-top: 20px;
+}
+.btn-primary:disabled,.btn-primary:disabled.btn-primary:hover {
+  background-color: #b6b6b7;
+  border-color: #959191;
+}
+rpm-survey #surveySelect{
+  margin-top: 50px;
+}
+.btn-primary{
+  background-color:#26b67c;
+  border-color:#26b67c;
+}
+.btn-primary:hover{
+  background-color:#2DD591;
+  border-color:#2DD591;
+}

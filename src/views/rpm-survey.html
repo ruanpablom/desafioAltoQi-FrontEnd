@@ -1,0 +1,36 @@
+<div  ng-init="vm.init()" class="container">
+    <div class="row">
+        <div class="col">
+            <select class="form-control" ng-model="vm.surveySelectedIndex" id="surveySelect" ng-show="vm.surveys" ng-hide="vm.surveyDataLoaded" ng-change="vm.showSurvey(vm.surveySelectedIndex)">
+                <option value="">Escolha uma pesquisa para responder</option>
+                <option ng-repeat="survey in vm.surveys" value="{{survey.id}}">{{survey.title}}</option>
+            </select>
+            <form id="surveyForm">
+                <div ng-show="vm.surveyDataLoaded" class="form-group">
+                    <h1><strong>{{vm.surveySelected.survey.title}}</strong></h1>
+                    <h6>{{vm.surveySelected.survey.description}}</h6>
+                    <section ng-repeat="question in vm.surveySelected.question" class="card">
+                        <div class="card-header"><strong>{{question.id}} - {{question.description}}</strong></div>
+                        <div class="card-body">
+                            <div class="fluid-container">
+                                <div id="topic" class="row" ng-repeat="questionTopic in vm.surveySelected.question_topic[question.id]">
+                                    <div class="col-6 align-self-center">
+                                        <label>{{questionTopic.topic}}</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-control" ng-model="vm.userAnswerTopic[questionTopic.id]" id="">
+                                            <option value="">Escolha uma Resposta</option>
+                                            <option ng-repeat="questionAnswer in vm.surveySelected.question_answers[question.id]" value='{"question_answer":{{questionAnswer}}, "question_topic":{{questionTopic}}}'>{{questionAnswer.answer}}</option>
+                                        </select>      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>        
+                    </section>
+                    <input  type="email" ng-model="vm.email" class="form-control text-center" id="inputEmail" placeholder="Enter e-mail" ng-required="true" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+                </div>
+            </form>
+            <button ng-disabled="!vm.email"ng-show="vm.surveyDataLoaded" type="submit" ng-click="vm.submit(vm.userAnswerTopic, vm.email)" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
