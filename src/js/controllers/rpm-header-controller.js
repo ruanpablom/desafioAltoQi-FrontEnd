@@ -1,6 +1,6 @@
 class RpmHeaderController {
   constructor(){
-    this.logo = '/imgs/logoaltoqi.png';
+    this.logo = './imgs/logoaltoqi.png';
   }
 }
 
