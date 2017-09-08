@@ -1,7 +1,7 @@
 class RpmSurveyApi{
     constructor($http){
         this.$http = $http;
-        this.apiBaseUrl = 'http://api.qibox.com.br/index.php';
+        this.apiBaseUrl = 'https://api.qibox.com.br/index.php';
     }
 
     getSurvey(surveyIndex){
